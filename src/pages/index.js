@@ -1,5 +1,16 @@
-import React from "react"
+import React from 'react'
+import styled from 'styled-components'
+import GlobalStyle from './../GlobalStyle'
 
-export default function Home() {
-  return <div>Hello world!</div>
+const Wrapper = styled.div``
+
+const Home = () => {
+  return (
+    <Wrapper>
+      <GlobalStyle />
+      <h1>Witam</h1>
+    </Wrapper>
+  )
 }
+
+export default Home
