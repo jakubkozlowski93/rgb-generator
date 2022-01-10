@@ -26,15 +26,15 @@ const Wrapper = styled.div`
 const ColorOutput = styled.div`
   grid-row: 1/2;
   grid-column: 1/2;
-  background: pink;
-  height: 150px;
-  width: 100%;
+  background: ${props => (props.primary ? props.primary : 'yellow')};
+  height: 180px;
+  width: 250px;
 `
 const ColorInfo = styled.div`
   grid-row: 1;
   grid-column: 2/3;
   color: #4a6166;
-  margin-left: 30px;
+  margin-left: 10px;
 `
 
 const StyledTitle = styled.h4`
@@ -50,35 +50,60 @@ const ColorGenerator = styled.div`
 `
 
 const Home = () => {
-  const [value, setValue] = useState(0)
+  const [Rvalue, setRValue] = useState(247)
+  const [Gvalue, setGValue] = useState(192)
+  const [Bvalue, setBValue] = useState(227)
+
   return (
     <>
       <GlobalStyle />
       <StyledNav>Color generator</StyledNav>
       <Wrapper>
-        <ColorOutput></ColorOutput>
+        <ColorOutput primary={`rgb(${Rvalue},${Gvalue},${Bvalue})`}></ColorOutput>
         <ColorInfo>
           <StyledTitle>Click to copy</StyledTitle>
-          rgb({value}, 146, 166) <br />
+          rgb({Rvalue}, {Gvalue}, {Bvalue}) <br />
           <br />
           #5995a6 <br />
           <br /> hsl(193, 30%, 50%)
         </ColorInfo>
+
         <ColorGenerator>
           <Typography id="non-linear-slider" gutterBottom>
-            R: {value}
-            {/* Storage: {valueLabelFormat(calculateValue(value))} */}
+            R: {Rvalue}
           </Typography>
           <Slider
-            value={value}
+            value={Rvalue}
             min={0}
             max={255}
             step={1}
-            // scale={calculateValue}
-            // getAriaValueText={valueLabelFormat}
-            // valueLabelFormat={valueLabelFormat}
-            // onChange={handleChange}
-            onChange={e => setValue(e.target.value)}
+            onChange={e => setRValue(e.target.value)}
+            valueLabelDisplay="auto"
+            aria-labelledby="non-linear-slider"
+          />
+
+          <Typography id="non-linear-slider" gutterBottom>
+            G: {Gvalue}
+          </Typography>
+          <Slider
+            value={Gvalue}
+            min={0}
+            max={255}
+            step={1}
+            onChange={e => setGValue(e.target.value)}
+            valueLabelDisplay="auto"
+            aria-labelledby="non-linear-slider"
+          />
+
+          <Typography id="non-linear-slider" gutterBottom>
+            B: {Bvalue}
+          </Typography>
+          <Slider
+            value={Bvalue}
+            min={0}
+            max={255}
+            step={1}
+            onChange={e => setBValue(e.target.value)}
             valueLabelDisplay="auto"
             aria-labelledby="non-linear-slider"
           />
