@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 const ColorOutput = styled.div`
   grid-row: 1/2;
   grid-column: 1/2;
-  background: ${props => (props.primary ? props.primary : 'yellow')};
+  background: ${({ isColor }) => (isColor ? isColor : 'yellow')};
   height: 180px;
   width: 250px;
 `
@@ -59,7 +59,7 @@ const Home = () => {
       <GlobalStyle />
       <StyledNav>Color generator</StyledNav>
       <Wrapper>
-        <ColorOutput primary={`rgb(${Rvalue},${Gvalue},${Bvalue})`}></ColorOutput>
+        <ColorOutput isColor={`rgb(${Rvalue},${Gvalue},${Bvalue})`}></ColorOutput>
         <ColorInfo>
           <StyledTitle>Click to copy</StyledTitle>
           rgb({Rvalue}, {Gvalue}, {Bvalue}) <br />
