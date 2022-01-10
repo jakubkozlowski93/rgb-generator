@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import GlobalStyle from './../GlobalStyle'
+import GlobalStyle from '../styles/GlobalStyle'
 import Typography from '@mui/material/Typography'
 import Slider from '@mui/material/Slider'
 
