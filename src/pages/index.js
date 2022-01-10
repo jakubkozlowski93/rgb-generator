@@ -1,19 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import GlobalStyle from '../styles/GlobalStyle'
+import Layout from '../components/Layout'
 import Typography from '@mui/material/Typography'
 import Slider from '@mui/material/Slider'
-
-const StyledNav = styled.div`
-  width: 100%;
-  height: 10vh;
-  background-color: #0247fe;
-  display: flex;
-  align-items: center;
-  font-size: 28px;
-  color: #ffffff;
-  padding: 0 20px;
-`
 
 const Wrapper = styled.div`
   display: grid;
@@ -55,9 +44,7 @@ const Home = () => {
   const [Bvalue, setBValue] = useState(227)
 
   return (
-    <>
-      <GlobalStyle />
-      <StyledNav>Color generator</StyledNav>
+    <Layout>
       <Wrapper>
         <ColorOutput isColor={`rgb(${Rvalue},${Gvalue},${Bvalue})`}></ColorOutput>
         <ColorInfo>
@@ -109,7 +96,7 @@ const Home = () => {
           />
         </ColorGenerator>
       </Wrapper>
-    </>
+    </Layout>
   )
 }
 

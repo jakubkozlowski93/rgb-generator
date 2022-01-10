@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import Layout from './../components/Layout'
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -26,12 +27,14 @@ const Wrapper = styled.div`
 `
 
 const PageNotFound = () => (
-  <Wrapper>
-    <h1>404</h1>
-    <h2>Not Found</h2>
-    <p>The resource requested could not be found on this server.</p>
-    <Link to="/">Back to homepage.</Link>
-  </Wrapper>
+  <Layout>
+    <Wrapper>
+      <h1>404</h1>
+      <h2>Not Found</h2>
+      <p>The resource requested could not be found on this server.</p>
+      <Link to="/">Back to homepage.</Link>
+    </Wrapper>
+  </Layout>
 )
 
 export default PageNotFound
