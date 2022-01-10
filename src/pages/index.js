@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import GlobalStyle from './../GlobalStyle'
 import Typography from '@mui/material/Typography'
+import Slider from '@mui/material/Slider'
 
 const StyledNav = styled.div`
   width: 100%;
@@ -46,10 +47,10 @@ const StyledTitle = styled.h4`
 const ColorGenerator = styled.div`
   grid-row: 2/3;
   grid-column: 1/3;
-  background: red;
 `
 
 const Home = () => {
+  const [value, setValue] = useState(0)
   return (
     <>
       <GlobalStyle />
@@ -58,18 +59,30 @@ const Home = () => {
         <ColorOutput></ColorOutput>
         <ColorInfo>
           <StyledTitle>Click to copy</StyledTitle>
-          rgb(89, 146, 166) <br />
+          rgb({value}, 146, 166) <br />
           <br />
           #5995a6 <br />
           <br /> hsl(193, 30%, 50%)
         </ColorInfo>
         <ColorGenerator>
-          Generator Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam harum dolorem maxime quo. Dignissimos dolores consequatur magni!
-          At adipisci soluta repudiandae perferendis inventore, ad explicabo officia odit impedit, totam possimus!
+          <Typography id="non-linear-slider" gutterBottom>
+            R: {value}
+            {/* Storage: {valueLabelFormat(calculateValue(value))} */}
+          </Typography>
+          <Slider
+            value={value}
+            min={0}
+            max={255}
+            step={1}
+            // scale={calculateValue}
+            // getAriaValueText={valueLabelFormat}
+            // valueLabelFormat={valueLabelFormat}
+            // onChange={handleChange}
+            onChange={e => setValue(e.target.value)}
+            valueLabelDisplay="auto"
+            aria-labelledby="non-linear-slider"
+          />
         </ColorGenerator>
-        <Typography variant="h4" component="h1" gutterBottom>
-          ass
-        </Typography>
       </Wrapper>
     </>
   )
