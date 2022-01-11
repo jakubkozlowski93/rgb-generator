@@ -45,7 +45,7 @@ export const RGBToHSL = rgb => {
     s = +(s * 100).toFixed(1)
     l = +(l * 100).toFixed(1)
 
-    return 'hsl(' + h + ',' + Math.round(s) + '%,' + Math.round(l) + '%)'
+    return `hsl(${h}, ${Math.round(s)}%, ${Math.round(l)}%)`
   } else {
     return 'Invalid input color'
   }
