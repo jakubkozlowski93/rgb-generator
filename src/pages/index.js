@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import Typography from '@mui/material/Typography'
 import Slider from '@mui/material/Slider'
-import { Wrapper, ColorOutput, ColorInfo, StyledTitle, ColorGenerator } from './index.styles'
+import { Wrapper, ColorOutput, ColorInfo, StyledTitle, ColorGenerator } from '../styles/index.styles'
 import { rgbToHex, RGBToHSL } from './../helpers/functions'
 import copy from './../assets/copy.svg'
 
