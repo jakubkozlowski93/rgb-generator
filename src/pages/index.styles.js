@@ -27,6 +27,15 @@ export const StyledTitle = styled.h4`
   font-size: 24px;
   font-weight: normal;
   color: #4a6166;
+  display: flex;
+  align-items: center;
+  height: 40px;
+
+  img {
+    width: 20px;
+    height: 20px;
+    margin-left: 7px;
+  }
 `
 
 export const ColorGenerator = styled.div`

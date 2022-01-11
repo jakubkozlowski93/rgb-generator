@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography'
 import Slider from '@mui/material/Slider'
 import { Wrapper, ColorOutput, ColorInfo, StyledTitle, ColorGenerator } from './index.styles'
 import { rgbToHex, RGBToHSL } from './../helpers/functions'
+import copy from './../assets/copy.svg'
 
 const Home = () => {
   const [Rvalue, setRValue] = useState(247)
@@ -24,11 +25,14 @@ const Home = () => {
       <Wrapper>
         <ColorOutput isColor={`rgb(${Rvalue},${Gvalue},${Bvalue})`}></ColorOutput>
         <ColorInfo>
-          <StyledTitle>Click to copy</StyledTitle>
-          rgb({Rvalue}, {Gvalue}, {Bvalue}) <br />
-          <br />
-          {hexValue} <br />
-          <br /> {hslValue}
+          <StyledTitle>
+            Click below to copy <img src={copy} alt="copy icon" />
+          </StyledTitle>
+          <p>
+            rgb({Rvalue}, {Gvalue}, {Bvalue})
+          </p>
+          <p>{hexValue}</p>
+          <p onClick={e => navigator.clipboard.writeText(e.target.innerText)}>{hslValue}</p>
         </ColorInfo>
 
         <ColorGenerator>
