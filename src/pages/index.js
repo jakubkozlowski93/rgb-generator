@@ -3,45 +3,27 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Typography from '@mui/material/Typography'
 import Slider from '@mui/material/Slider'
+import { Wrapper, ColorOutput, ColorInfo, StyledTitle, ColorGenerator } from './index.styles'
 
-const Wrapper = styled.div`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 2;
-  grid-template-rows: 2;
-  padding: 50px 30px;
-`
+const componentToHex = c => {
+  var hex = c.toString(16)
+  return hex.length == 1 ? '0' + hex : hex
+}
 
-const ColorOutput = styled.div`
-  grid-row: 1/2;
-  grid-column: 1/2;
-  background: ${({ isColor }) => (isColor ? isColor : 'yellow')};
-  height: 180px;
-  width: 250px;
-`
-const ColorInfo = styled.div`
-  grid-row: 1;
-  grid-column: 2/3;
-  color: #4a6166;
-  margin-left: 10px;
-`
-
-const StyledTitle = styled.h4`
-  margin: 0 0 10px 0;
-  font-size: 24px;
-  font-weight: normal;
-  color: #4a6166;
-`
-
-const ColorGenerator = styled.div`
-  grid-row: 2/3;
-  grid-column: 1/3;
-`
+const rgbToHex = (r, g, b) => {
+  return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b)
+}
 
 const Home = () => {
   const [Rvalue, setRValue] = useState(247)
   const [Gvalue, setGValue] = useState(192)
   const [Bvalue, setBValue] = useState(227)
+  const [hexValue, setHexValue] = useState('##f7c0e3')
+
+  React.useEffect(() => {
+    let hex = rgbToHex(Rvalue, Gvalue, Bvalue)
+    setHexValue(hex)
+  }, [Rvalue, Gvalue, Bvalue])
 
   return (
     <Layout>
@@ -51,7 +33,7 @@ const Home = () => {
           <StyledTitle>Click to copy</StyledTitle>
           rgb({Rvalue}, {Gvalue}, {Bvalue}) <br />
           <br />
-          #5995a6 <br />
+          {hexValue} <br />
           <br /> hsl(193, 30%, 50%)
         </ColorInfo>
 
