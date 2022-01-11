@@ -3,17 +3,20 @@ import Layout from '../components/Layout'
 import Typography from '@mui/material/Typography'
 import Slider from '@mui/material/Slider'
 import { Wrapper, ColorOutput, ColorInfo, StyledTitle, ColorGenerator } from './index.styles'
-import { rgbToHex } from './../helpers/functions'
+import { rgbToHex, RGBToHSL } from './../helpers/functions'
 
 const Home = () => {
   const [Rvalue, setRValue] = useState(247)
   const [Gvalue, setGValue] = useState(192)
   const [Bvalue, setBValue] = useState(227)
   const [hexValue, setHexValue] = useState('##f7c0e3')
+  const [hslValue, setHslValue] = useState('hsl(322, 77%, 86%)')
 
   useEffect(() => {
     let hex = rgbToHex(Rvalue, Gvalue, Bvalue)
     setHexValue(hex)
+    let hsl = RGBToHSL(`rgb(${Rvalue}, ${Gvalue}, ${Bvalue})`)
+    setHslValue(hsl)
   }, [Rvalue, Gvalue, Bvalue])
 
   return (
@@ -25,7 +28,7 @@ const Home = () => {
           rgb({Rvalue}, {Gvalue}, {Bvalue}) <br />
           <br />
           {hexValue} <br />
-          <br /> hsl(193, 30%, 50%)
+          <br /> {hslValue}
         </ColorInfo>
 
         <ColorGenerator>
