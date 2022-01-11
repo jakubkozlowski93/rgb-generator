@@ -28,10 +28,10 @@ const Home = () => {
           <StyledTitle>
             Click below to copy <img src={copy} alt="copy icon" />
           </StyledTitle>
-          <p>
+          <p onClick={() => navigator.clipboard.writeText(`rgb(${Rvalue}, ${Gvalue}, ${Bvalue})`)}>
             rgb({Rvalue}, {Gvalue}, {Bvalue})
           </p>
-          <p>{hexValue}</p>
+          <p onClick={e => navigator.clipboard.writeText(e.target.innerText)}>{hexValue}</p>
           <p onClick={e => navigator.clipboard.writeText(e.target.innerText)}>{hslValue}</p>
         </ColorInfo>
 

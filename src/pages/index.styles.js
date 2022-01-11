@@ -20,6 +20,14 @@ export const ColorInfo = styled.div`
   grid-column: 2/3;
   color: #4a6166;
   margin-left: 10px;
+
+  p {
+    cursor: pointer;
+
+    :hover {
+      opacity: 0.9;
+    }
+  }
 `
 
 export const StyledTitle = styled.h4`
