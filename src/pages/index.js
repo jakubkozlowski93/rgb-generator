@@ -1,18 +1,9 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout'
 import Typography from '@mui/material/Typography'
 import Slider from '@mui/material/Slider'
 import { Wrapper, ColorOutput, ColorInfo, StyledTitle, ColorGenerator } from './index.styles'
-
-const componentToHex = c => {
-  var hex = c.toString(16)
-  return hex.length == 1 ? '0' + hex : hex
-}
-
-const rgbToHex = (r, g, b) => {
-  return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b)
-}
+import { rgbToHex } from './../helpers/functions'
 
 const Home = () => {
   const [Rvalue, setRValue] = useState(247)
@@ -20,7 +11,7 @@ const Home = () => {
   const [Bvalue, setBValue] = useState(227)
   const [hexValue, setHexValue] = useState('##f7c0e3')
 
-  React.useEffect(() => {
+  useEffect(() => {
     let hex = rgbToHex(Rvalue, Gvalue, Bvalue)
     setHexValue(hex)
   }, [Rvalue, Gvalue, Bvalue])
