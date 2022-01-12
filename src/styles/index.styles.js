@@ -29,6 +29,7 @@ export const ColorOutput = styled.div`
   background: ${({ isColor }) => (isColor ? isColor : 'yellow')};
   height: 180px;
   width: 250px;
+  margin-bottom: 10px;
 
   @media (min-width: 550px) {
     grid-row: 1/2;
