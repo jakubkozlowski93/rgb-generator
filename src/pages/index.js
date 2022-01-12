@@ -23,7 +23,6 @@ const Home = () => {
   return (
     <Layout>
       <Wrapper>
-        <ColorOutput isColor={`rgb(${Rvalue},${Gvalue},${Bvalue})`}></ColorOutput>
         <ColorInfo>
           <StyledTitle>
             Click below to copy <img src={copy} alt="copy icon" />
@@ -34,6 +33,8 @@ const Home = () => {
           <p onClick={e => navigator.clipboard.writeText(e.target.innerText)}>{hexValue}</p>
           <p onClick={e => navigator.clipboard.writeText(e.target.innerText)}>{hslValue}</p>
         </ColorInfo>
+
+        <ColorOutput isColor={`rgb(${Rvalue},${Gvalue},${Bvalue})`}></ColorOutput>
 
         <ColorGenerator>
           <Typography id="non-linear-slider" gutterBottom>
