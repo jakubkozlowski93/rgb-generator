@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-gap: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +15,14 @@ export const Wrapper = styled.div`
     grid-template-columns: 2;
     padding: 30px;
   }
+
+  @media (min-width: 950px) {
+    padding: 40px 80px;
+  }
+
+  @media (min-width: 1600px) {
+    margin-top: 100px;
+  }
 `
 
 export const ColorOutput = styled.div`
@@ -28,11 +35,18 @@ export const ColorOutput = styled.div`
     grid-column: 1/2;
     width: 250px;
   }
+
+  @media (min-width: 750px) {
+    width: 300px;
+    height: 220px;
+  }
+
+  @media (min-width: 950px) {
+    width: 400px;
+  }
 `
 export const ColorInfo = styled.div`
   color: #4a6166;
-  margin-left: 10px;
-
   p {
     cursor: pointer;
 
@@ -44,6 +58,22 @@ export const ColorInfo = styled.div`
   @media (min-width: 550px) {
     grid-row: 1/2;
     grid-column: 2/3;
+  }
+
+  @media (min-width: 750px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 300px;
+  }
+
+  @media (min-width: 1400px) {
+    width: 400px;
+  }
+
+  @media (min-width: 1600px) {
+    width: 500px;
   }
 `
 
@@ -61,6 +91,10 @@ export const StyledTitle = styled.h4`
     height: 20px;
     margin-left: 7px;
   }
+
+  @media (min-width: 750px) {
+    font-size: 24px;
+  }
 `
 
 export const ColorGenerator = styled.div`
@@ -70,5 +104,13 @@ export const ColorGenerator = styled.div`
     grid-row: 2/3;
     grid-column: 1/3;
     width: 100%;
+  }
+
+  @media (min-width: 750px) {
+    margin-top: 20px;
+  }
+
+  @media (min-width: 1400px) {
+    margin-top: 70px;
   }
 `
