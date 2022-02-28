@@ -49,7 +49,7 @@ export const ColorOutput = styled.div`
 export const ColorInfo = styled.div`
   color: #4a6166;
   p {
-    cursor: pointer;
+    cursor: copy;
 
     :hover {
       opacity: 0.9;
